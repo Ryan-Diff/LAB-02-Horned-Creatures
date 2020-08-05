@@ -15,7 +15,7 @@ images.map(image => {
 
 class App extends React.Component {
   state = {
-    filter: 'rhino'
+    filter: ''
   }
   handleKeyword = (e) => {
     const keyword = e.target.value;
@@ -26,15 +26,17 @@ class App extends React.Component {
     const filteredImages = images.filter(image => image.keyword === this.state.filter)
 
     return (
-      <>
+      <body>
         <Header />
-        <select onChange={this.handleKeyword} name='' id=''>
-          {
-            keywords.map(keyword => <option key={keyword} value={keyword}>{keyword}</option>)
-          }
-        </select>
-        <ImageList images={filteredImages} />
-      </>
+        <main> 
+          <select onChange={this.handleKeyword} name='' id=''>
+            {
+              keywords.map(keyword => <option key={keyword} value={keyword}>{keyword}</option>)
+            }
+          </select>
+          <ImageList images={filteredImages} />
+        </main>
+      </body>
     );
   }
 }
