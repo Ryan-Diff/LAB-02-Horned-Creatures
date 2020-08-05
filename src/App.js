@@ -4,10 +4,13 @@ import Header from './Header.js';
 import ImageList from './ImageList.js'
 import { images} from './data.js';
 
-let keywords = images.map(image => {
-  const container = [];
-  container.push(image.keyword)
-  return container;
+let keywords = []
+images.map(image => {
+
+  if(!keywords.includes(`${image.keyword}`)) {
+    keywords.push(`${image.keyword}`)
+  }
+  return keywords;
 })
 
 class App extends React.Component {
